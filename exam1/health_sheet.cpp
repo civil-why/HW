@@ -2,6 +2,7 @@
 
 void Health_Sheet::create_sheet(int max=default_max)
 {
+    for(int i=0;i<=last_std;i++) del_std(i+1);
     maxSize=max;
     std = new Health_Map[max];
     if(std==nullptr){
