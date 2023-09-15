@@ -18,9 +18,11 @@ private:
     void resize(int NewSize);
 public:
     Health_Sheet();
-    ~Health_Sheet();
+    ~Health_Sheet(){};
     Health_Sheet(Health_Sheet& );
     void create_sheet(int);
+    void Read();
+    void Write();
     int Size()const{return maxSize;};
     int Length()const{return last_std+1;}
     bool ins_std(int,Health_Map&);

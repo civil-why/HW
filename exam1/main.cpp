@@ -11,9 +11,9 @@ int main(int argc,char* argv[]){
     while(choice!=0)
     {
         cout<<"————————————————————————————————————————"<<endl;
-        cout<<"1:覆盖当前表格 2:插入学生信息 3:删除学生信息 4:查询学生信息 5:输出全部学生信息 0:保存学生健康表并退出系统"<<endl;
+        cout<<"1:新建学生健康表格 2:插入学生信息 3:删除学生信息 4:查询学生信息 5:查询全部学生信息 6：读取健康表格信息 7：写入学生健康表信息 0:保存学生健康表并退出系统"<<endl;
         cin>>choice;
-        if(choice>5){
+        if(choice>7){
             cerr<<"输入出错，请重新输入"<<endl;
             exit(1);
         }
@@ -96,6 +96,17 @@ int main(int argc,char* argv[]){
             cout<<"————————————————————————————————————————"<<endl;
             health_S.putout_all();
             cout<<"————————————————————————————————————————"<<endl;
+            break;
+        case 6:
+        {
+            cout<<"已读取学生信息"<<endl;
+            health_S.Read();
+            health_S.putout_all();
+            break;
+        }
+        case 7:
+            health_S.Write();
+            cout<<"已写入文件"<<endl;
             break;
         }
     }

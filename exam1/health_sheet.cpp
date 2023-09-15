@@ -9,11 +9,16 @@ void Health_Sheet::create_sheet(int max=default_max)
         cerr<<"内存分配错误！"<<endl;
         exit(1);
     }
+    last_std=0;
 }
 
 Health_Sheet::Health_Sheet()
 {
     create_sheet();
+}
+
+void Health_Sheet::Read()
+{
     fstream file;
     file.open("Sheet.dat",ios::in|ios::binary);
     Health_Map s;
@@ -44,7 +49,7 @@ Health_Sheet::Health_Sheet(Health_Sheet& T)//复制T到当前表
     }
 }
 
-Health_Sheet::~Health_Sheet(){
+void Health_Sheet::Write(){
     fstream file;
     file.open("Sheet.dat",ios::out|ios::binary);
     Health_Map s;
