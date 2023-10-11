@@ -1,5 +1,6 @@
 #include"health_map.h"
 #include"health_sheet.h"
+#include<iostream>
 
 using namespace std;
 
