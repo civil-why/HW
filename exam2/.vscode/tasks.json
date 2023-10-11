@@ -12,7 +12,7 @@
                 "-g",
                 "-Wall", 
                 "-static-libgcc",   
-                "-fexec-charset=GBK",
+                "-fexec-charset=UTF-8",
                 "-std=c++11",  //写c++换成c++标准
             ],
             "group": {

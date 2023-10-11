@@ -1,17 +1,18 @@
 #include"health_map.h"
-#include"health_node.h"
+#include"health_list.h"
+#include<iostream>
 
 using namespace std;
 
-int main(int argc,char* argv[]){
+int main(){
     int choice=-1;
-    Health_Sheet health_S;
+    Health_list health_l;
     cout<<"欢迎使用学生健康系统"<<endl;
     cout<<"————————————————————————————————————————"<<endl;
     while(choice!=0)
     {
         cout<<"————————————————————————————————————————"<<endl;
-        cout<<"1:新建学生健康表格 2:插入学生信息 3:删除学生信息 4:查询学生信息 5:查询全部学生信息 6：读取健康表格信息 7：写入学生健康表信息 0:保存学生健康表并退出系统"<<endl;
+        cout<<"1:新建学生健康表格 \n2:插入学生信息 \n3:删除学生信息 \n4:查询学生信息 \n5:查询全部学生信息 \n6：读取健康表格信息 \n7：写入学生健康表信息 \n0:保存学生健康表并退出系统"<<endl;
         cin>>choice;
         if(choice>7){
             cerr<<"输入出错，请重新输入"<<endl;
@@ -27,10 +28,7 @@ int main(int argc,char* argv[]){
             string str;
             cin>>str;
             if(str=="YES"){
-                cout<<"输入新表格人数： ";
-                int temp;
-                cin>>temp;
-                health_S.create_sheet(temp);
+                health_l.new_list();
                 }
             else if(str=="NO") break;
             else {
@@ -54,7 +52,7 @@ int main(int argc,char* argv[]){
             cout<<"学生性别（输入M表示男生，输入W表示女生）: "; cin>>gender;
             cout<<"学生健康状况： "; cin>>condition;
             Health_Map map(num,name,date,gender,condition);
-            if(health_S.ins_std(temp,map)){
+            if(health_l.ins_node(temp,map)){
                 cout<<"录入信息成功！"<<endl;
             }
             else {
@@ -73,7 +71,7 @@ int main(int argc,char* argv[]){
                 cout<<"输入删除学生在表格中所在位置： ";
                 int temp;
                 cin>>temp;
-                health_S.del_std(temp);
+                health_l.del_node(temp);
                 }
             else if(str=="NO") break;
             else {
@@ -86,7 +84,7 @@ int main(int argc,char* argv[]){
             cout<<"输入所查学生的学号： ";
             long long temp;
             cin>>temp;
-            if(health_S.search_std(temp)){
+            if(health_l.search_node(temp)){
                 cout<<"学生信息："<<endl;
             }
             else cout<<"未找到该学生，即将返回菜单"<<endl;
@@ -94,18 +92,18 @@ int main(int argc,char* argv[]){
         case 5:
             cout<<"所有学生信息："<<endl;
             cout<<"————————————————————————————————————————"<<endl;
-            health_S.putout_all();
+            health_l.putout_all();
             cout<<"————————————————————————————————————————"<<endl;
             break;
         case 6:
         {
             cout<<"已读取学生信息"<<endl;
-            health_S.Read();
-            health_S.putout_all();
+            health_l.Read();
+            health_l.putout_all();
             break;
         }
         case 7:
-            health_S.Write();
+            health_l.Write();
             cout<<"已写入文件"<<endl;
             break;
         }
