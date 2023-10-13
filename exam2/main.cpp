@@ -16,7 +16,7 @@ int main(){
         cin>>choice;
         if(choice>7){
             cerr<<"输入出错，请重新输入"<<endl;
-            exit(1);
+            continue;
         }
         cout<<"————————————————————————————————————————"<<endl;
         switch (choice)
