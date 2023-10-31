@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++", //写c++换成g++
+            "args": [
+                "${fileDirname}\\*.cpp", //写c++把 *.c 换成 *.cpp
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-g",
+                "-Wall", 
+                "-static-libgcc",   
+                "-fexec-charset=GBK",
+                "-std=c++11",  //写c++换成c++标准
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "dependsOn": "build",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        }
+
+    ]
+}
