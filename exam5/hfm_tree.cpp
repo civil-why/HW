@@ -121,17 +121,17 @@ void HfmTree::Write()
 {
     ofstream file;
     file.open("hfmTree.dat",ios::out|ios::binary);
-    Pre_order_in(root,file);
+    Pre_order_in_file(root,file);
     file.close();
 }
 
-void HfmTree::Pre_order_in(Treenode<char_set>* current,ofstream &os)
+void HfmTree::Pre_order_in_file(Treenode<char_set>* current,ofstream &os)
 {
     if(current==nullptr) return;
     else {
         os<<current->data.data<<' '<<current->data.frequency<<' '<<current->data.hfm_code<<' ';
-        Pre_order_in(current->leftchild,os);
-        Pre_order_in(current->rightchild,os);
+        Pre_order_in_file(current->leftchild,os);
+        Pre_order_in_file(current->rightchild,os);
         }
 }
 
@@ -167,4 +167,33 @@ bool HfmTree::Is_Tree()
 void HfmTree::operator=(const HfmTree& h)
 {
     root=Copy(h.root);
+}
+
+void HfmTree::Read()
+{
+    ifstream file;
+    file.open("hfmTree.dat",ios::in|ios::binary);
+    Pre_order_out_file(root,file);
+    file.close();
+}
+
+void HfmTree::Pre_order_out_file(Treenode<char_set>* &current,ifstream& in)
+{
+    char_set s;
+    in>>s.data>>s.frequency;
+    if(s.data!='#'){
+        if(s.data=='*') s.data=' ';
+        in>>s.hfm_code;
+        Treenode<char_set>* t=new Treenode<char_set>;
+        t->data=s;
+        t->leftchild=nullptr;
+        t->rightchild=nullptr;
+        current=t;
+        return;
+    }
+    Treenode<char_set>* temp=new Treenode<char_set>;
+    temp->data=s;
+    current=temp;
+    Pre_order_out_file(current->leftchild,in);
+    Pre_order_out_file(current->rightchild,in);
 }

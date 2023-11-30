@@ -19,7 +19,7 @@ private:
 
 protected:
     void Destroy(node*);
-    node* Copy_rule(node*);
+    //node* Copy_rule(node*);
 
 public:
     Encode();
@@ -27,7 +27,7 @@ public:
 
     void Tran();
     void Write_code();
-    void Read_tree(HfmTree&);
+    void Read_tree();
 };
 
 #endif

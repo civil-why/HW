@@ -36,7 +36,7 @@ void Encode::Tran()
     }
 }
 
-void Encode::Read_tree(HfmTree& Tree)
+void Encode::Read_tree()
 {
     fstream file;
     file.open("hfmTree.dat",ios::in|ios::binary);
@@ -60,9 +60,9 @@ void Encode::Read_tree(HfmTree& Tree)
     }
     rule=begin;
     rule_num=i;
-    node* str=Copy_rule(rule);
-    HfmTree t(i,str);
-    Tree=t;
+    //node* str=Copy_rule(rule);
+    //HfmTree t(i,str);
+    //Tree=t;
 }
 
 void Encode::Write_code()
@@ -72,13 +72,13 @@ void Encode::Write_code()
     file<<hfm_code;
 }
 
-node* Encode::Copy_rule(node* current)
-{
-    if(current==nullptr) return nullptr;
-    else{
-        node* temp=new node;
-        temp->data=current->data;
-        temp->next=Copy_rule(current->next);
-        return temp;
-    }
-}
+// node* Encode::Copy_rule(node* current)
+// {
+//     if(current==nullptr) return nullptr;
+//     else{
+//         node* temp=new node;
+//         temp->data=current->data;
+//         temp->next=Copy_rule(current->next);
+//         return temp;
+//     }
+// }

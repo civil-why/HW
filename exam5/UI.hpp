@@ -93,7 +93,7 @@ void UI::act()
     case 'E':
     {
         cout<<"开始编码，请确保ToBeTran文件已经写入内容"<<endl;
-        e.Read_tree(Tree);
+        e.Read_tree();
         e.Tran();
         e.Write_code();
         welcome();
@@ -101,7 +101,8 @@ void UI::act()
         }
     case 'D':
     {
-        cout<<"开始译码，将CodeFile文件中的内容写入Textfile中";
+        cout<<"开始译码，将CodeFile文件中的内容写入Textfile中"<<endl;
+        Tree.Read();
         d.Read_code();
         d.de_code(Tree);
         d.Write_data();
