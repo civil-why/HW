@@ -39,8 +39,6 @@ void UI::welcome()
     cout<<"I：初始化系统"<<endl;
     cout<<"E：编码"<<endl;
     cout<<"D：译码"<<endl;
-    cout<<"P：打印代码文件"<<endl;
-    cout<<"T：打印霍夫曼树"<<endl;
     cout<<"Q：退出系统"<<endl;
     cin>>choice;
     act();
@@ -109,12 +107,6 @@ void UI::act()
         welcome();
         break;
         }
-    case 'P'://没做哦
-        cout<<"没做哦"<<endl;
-        break;
-    case 'T'://没做哦
-        cout<<"没做哦"<<endl;
-        break;
     case 'Q':
         cout<<"成功退出程序！"<<endl;
         break;
