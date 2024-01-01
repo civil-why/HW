@@ -9,7 +9,8 @@
         "utility": "cpp",
         "valarray": "cpp",
         "queue": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "vector": "cpp"
     },
     "cmake.configureOnOpen": true
 }
