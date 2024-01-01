@@ -61,6 +61,11 @@ void UI::welcome()
         cin>>P1>>P2;
         M.Insert_Edge(P1,P2,1);
     }
+
+    cout<<"邻接矩阵深度优先搜索的结果为："<<endl;
+    M.DFS('A');
+    cout<<"\n邻接矩阵广度优先搜索的结果为："<<endl;
+    M.BFS('A');
 }//欢迎页并读取用户选项
 
 void UI::errin()

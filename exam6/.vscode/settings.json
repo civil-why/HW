@@ -7,7 +7,9 @@
         "initializer_list": "cpp",
         "regex": "cpp",
         "utility": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "queue": "cpp",
+        "iostream": "cpp"
     },
     "cmake.configureOnOpen": true
 }
